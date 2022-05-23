@@ -5,62 +5,155 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:ignore="MissingConstraints">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pemain1" />
-        <ImageView
-            android:id="@+id/batuPlayer"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/batu" />
-        <ImageView
-            android:id="@+id/kertasPlayer"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/kertas" />
-        <ImageView
-            android:id="@+id/guntingPlayer"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/gunting" />
-    </LinearLayout>
-
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <LinearLayout
+            android:rotation="-20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_alignParentRight="true"
+            android:layout_marginVertical="80dp"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:textSize="25sp"
+                android:textColor="@color/design_default_color_primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kertas"
+                android:gravity="center"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:textSize="25sp"
+                android:textColor="@color/design_default_color_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gunting"
+                android:gravity="center"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:textSize="25sp"
+                android:textColor="@color/teal_700"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/batu"
+                android:gravity="center"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
             tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="35dp"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="com"/>
+                    android:text="@string/pemain1"
+                    android:textColor="@color/teal_200"
+                    android:textSize="20sp" />
+
                 <ImageView
-                    android:id="@+id/batuCom"
+                    android:id="@+id/batuPlayer"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_marginVertical="10dp"
                     android:src="@drawable/batu" />
+
                 <ImageView
-                    android:id="@+id/kertasCom"
+                    android:id="@+id/kertasPlayer"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_marginVertical="10dp"
                     android:src="@drawable/kertas" />
+
                 <ImageView
-                    android:id="@+id/guntingCom"
+                    android:id="@+id/guntingPlayer"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_marginVertical="10dp"
                     android:src="@drawable/gunting" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/dynamicText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:rotation="-20"
+                android:text="@string/winner"
+                android:textColor="@color/design_default_color_error"
+                android:textSize="20sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="35dp"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical"
+                    tools:ignore="MissingConstraints">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pemain2"
+                        android:textColor="@color/teal_200"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/batuCom"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginVertical="10dp"
+                        android:src="@drawable/batu" />
+
+                    <ImageView
+                        android:id="@+id/kertasCom"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginVertical="10dp"
+                        android:src="@drawable/kertas" />
+
+                    <ImageView
+                        android:id="@+id/guntingCom"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginVertical="10dp"
+                        android:src="@drawable/gunting" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="#fddd"
+            android:paddingLeft="5dp"
+            android:paddingRight="7dp"
+            android:id="@+id/refresh"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="end"
+            android:src="@drawable/refresh"
+            tools:ignore="MissingConstraints" />
+
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

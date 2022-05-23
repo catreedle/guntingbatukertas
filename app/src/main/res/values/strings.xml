@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">guntingbatukertad</string>
+    <string name="app_name">guntingbatukertas</string>
+    <string name="kertas">Kertas</string>
+    <string name="gunting">Gunting</string>
+    <string name="batu">Batu</string>
+    <string name="pemain1">Pemain 1</string>
+    <string name="pemain2">COM</string>
+    <string name="winner">VS</string>
 </resources>
