@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // variables and initial state of game
         guntingPlayer = findViewById(R.id.guntingPlayer)
         batuPlayer = findViewById(R.id.batuPlayer)
         kertasPlayer = findViewById(R.id.kertasPlayer)
@@ -36,7 +37,10 @@ class MainActivity : AppCompatActivity() {
 
         refreshButton = findViewById(R.id.refresh)
 
-        resetDisplayCom()
+
+        resetDisplayCom() // clear previous display of computer's pick
+
+        // event listener for everytime player clicks one of the suit imageview
         guntingPlayer.setOnClickListener {
             pemain1 = "gunting"
             Log.d(MainActivity::class.java.simpleName, "Pemain 1 : " +pemain1)
@@ -66,17 +70,20 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    // function to decide computer's pick in a game suit randomly
     private fun computerPlay(): String {
         var selection: Array<String> = arrayOf("gunting", "batu", "kertas")
 
         var randomIndex = Random.nextInt(0, 3)
         var randomSelection = selection[randomIndex]
-        Log.d(MainActivity::class.java.simpleName, "com : "+ randomSelection )
+        Log.d(MainActivity::class.java.simpleName, "Komputer : "+ randomSelection )
         resetDisplayCom()
         displayComputersPick(randomSelection)
         return randomSelection
     }
 
+
+    // function to show computer's pick in suit
     private fun displayComputersPick(pick: String) {
         when(pick) {
             "gunting" -> guntingCom.setBackgroundColor(Color.parseColor("#6699cc"))
@@ -85,6 +92,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //    function to show player's choice (click) in suit
     private fun displayPlayersPick(pick: String) {
         resetDisplayPlayer()
         when(pick) {
@@ -96,6 +104,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    //    function to compare Player and Computer's pick and output the winner
     private fun decideWinner(pemain1: String, com: String): String {
         var winner = ""
         var playerWin = "Pemain 1\nMENANG"
@@ -130,21 +139,25 @@ class MainActivity : AppCompatActivity() {
         return winner
     }
 
+    // function to reset background color of computer's pick from the previous game
     private fun resetDisplayCom() {
         guntingCom.setBackgroundColor(Color.parseColor("#ffffff"))
         batuCom.setBackgroundColor(Color.parseColor("#ffffff"))
         kertasCom.setBackgroundColor(Color.parseColor("#ffffff"))
     }
 
+    // function to reset background color of player's pick from the previous game
     private fun resetDisplayPlayer() {
         guntingPlayer.setBackgroundColor(Color.parseColor("#ffffff"))
         batuPlayer.setBackgroundColor(Color.parseColor("#ffffff"))
         kertasPlayer.setBackgroundColor(Color.parseColor("#ffffff"))
     }
 
+    // reset game condition to initial state
     private fun resetGame() {
         resetDisplayPlayer()
         resetDisplayCom()
         displayWinner.setText("VS")
+        displayWinner.setBackgroundColor(Color.parseColor("#ffffff"))
     }
 }
