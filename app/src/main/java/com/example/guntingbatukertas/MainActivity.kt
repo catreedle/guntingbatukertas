@@ -42,8 +42,16 @@ class MainActivity : AppCompatActivity() {
 
         // event listener for everytime player clicks one of the suit imageview
         guntingPlayer.setOnClickListener {
+            // untuk variable pemain, lebih baik kalau menggunakan const
+            // misal
+            // val GUNTING = "gunting
+            // saat set, tinggal panggil
+            // ex :  pemain1 = GUNTING
+            // dengan begini, akan mengurangi typo pada saat pengecekan when di
+            // method decideWinner dan displayComputersPick/displayPlayersPick
             pemain1 = "gunting"
             Log.d(MainActivity::class.java.simpleName, "Pemain 1 : " +pemain1)
+            // untuk logging udah oke, mungkin buat string concat bisa di ganti jadi "Pemain 1 : $pemain1"
             displayPlayersPick(pemain1)
             com = computerPlay()
             decideWinner(pemain1, com)
@@ -72,9 +80,9 @@ class MainActivity : AppCompatActivity() {
 
     // function to decide computer's pick in a game suit randomly
     private fun computerPlay(): String {
-        var selection: Array<String> = arrayOf("gunting", "batu", "kertas")
+        var selection: Array<String> = arrayOf("gunting", "batu", "kertas") // bisa di ganti jadi val, karna ga pernah berubah nilainya
 
-        var randomIndex = Random.nextInt(0, 3)
+        var randomIndex = Random.nextInt(0, 3) // plus point untuk ini, logic random berjalan sesuai requirement
         var randomSelection = selection[randomIndex]
         Log.d(MainActivity::class.java.simpleName, "Komputer : "+ randomSelection )
         resetDisplayCom()
@@ -157,7 +165,7 @@ class MainActivity : AppCompatActivity() {
     private fun resetGame() {
         resetDisplayPlayer()
         resetDisplayCom()
-        displayWinner.setText("VS")
+        displayWinner.setText("VS") // ini bisa di ganti jadi displayWinner.text = "VS"
         displayWinner.setBackgroundColor(Color.parseColor("#ffffff"))
     }
 }

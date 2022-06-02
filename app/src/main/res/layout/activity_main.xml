@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <!-- plus 1 untuk penerapan rotation-->
         <LinearLayout
             android:rotation="-20"
             android:layout_width="wrap_content"
@@ -25,6 +26,8 @@
                 android:text="@string/kertas"
                 android:gravity="center"
                 tools:ignore="MissingConstraints" />
+
+                <!-- missing constrain bisa di hapus karna ga pake constraint-->
             <TextView
                 android:textSize="25sp"
                 android:textColor="@color/design_default_color_error"
@@ -63,6 +66,7 @@
                     android:text="@string/pemain1"
                     android:textColor="@color/teal_200"
                     android:textSize="20sp" />
+                <!-- plus 1 untuk penggunaan warna dari styles-->
 
                 <ImageView
                     android:id="@+id/batuPlayer"
